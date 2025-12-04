@@ -1,6 +1,6 @@
 A simple, automated Linux server hardening script for Debian-based systems. It applies a secure baseline suitable for lab servers, self-hosted services, and security practice.
 
-## Features
+##Features
 1. SSH hardening
 	- Disables root SSH login
 	- Disables password authentication (keys only, once configured)
@@ -20,11 +20,11 @@ A simple, automated Linux server hardening script for Debian-based systems. It a
 	- Enables automatic security updates (`unattended-upgrades`)
 
 
-## Requirements
+##Requirements
 - Debian 12 (Bookworm) or similar
 - Root or sudo privileges
 
-## Usage
+##Usage
 ```bash
 git clone https://github.com/huzefa-git/hardened-linux.git
 cd hardened-linux
@@ -32,12 +32,12 @@ chmod +x harden.sh
 sudo ./harden.sh
 ```
 
-## Usage notes
+##Usage notes
 - Run only on fresh or non-critical Debian-based systems; it will change SSH, firewall, and kernel settings.
 - After running, make sure you have working SSH key authentication before disabling password logins.
 - The script creates a backup of `/etc/ssh/sshd_config` as `sshd_config.bak.<date>`.
 
-## Verification
+##Verification
 1. Check firewall
 ```
 sudo ufw status verbose
@@ -55,7 +55,7 @@ sudo sysctl kernel.kptr_restrict
 sudo sysctl net.ipv4.ip_forward
 ```
 
-## Project structure
+##Project structure
 ```
 hardened-linux/
 |---harden.sh 	# main automation script
@@ -63,7 +63,7 @@ hardened-linux/
 |---.gitignore
 ```
 
-## Known issues
+##Known issues
 - If SSH blocks access after disabling password login, ensure SSH key authentication is configured first.
 - Fail2Ban service logs can be checked using: journalctl -xeu fail2ban
 
