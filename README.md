@@ -19,7 +19,6 @@ A simple, automated Linux server hardening script for Debian-based systems. It a
 	- Installs `libpam-pwquality` for strong passwords (configured manually earlier)
 	- Enables automatic security updates (`unattended-upgrades`)
 
-
 # Requirements
 - Debian 12 (Bookworm) or similar
 - Root or sudo privileges
