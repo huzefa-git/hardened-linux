@@ -5,20 +5,16 @@ Features
 	- Disables root SSH login
 	- Disables password authentication (keys only, once configured)
 	- Enforces secure defaults
-
 2. Network & firewall
 	- UFW configured to deny-all incoming by default
 	- Allows only SSH (22/tcp) by default
-
 3. Intrusion protection
 	- Fail2Ban configured for SSH  brute-force protection
-
 4. Kernel / sysctl hardening
 	- Disables IP forwarding (not a router)
 	- Anti-spoofing (`rp_filter`)
 	- SYN flood protection (`tcp_syncookies`)
 	- Restricts kernel debug info (`dmesg_restrict`, `kptr_restrict`, `sysrq=0`)
-
 5. Password & updates
 	- Installs `libpam-pwquality` for strong passwords (configured manually earlier)
 	- Enables automatic security updates (`unattended-upgrades`)
@@ -35,6 +31,11 @@ chmod +x harden.sh
 sudo ./harden.sh
 ```
 
+Usage notes
+- Run only on fresh or non-critical Debian-based systems; it will change SSH, firewall, and kernel settings.
+- After running, make sure you have working SSH key authentication before disabling password logins.
+- The script creates a backup of `/etc/ssh/sshd_config` as `sshd_config.bak.<date>`.
+
 Verification
 1. Check firewall
 sudo ufw status verbose
@@ -46,10 +47,11 @@ sudo sysctl kernel.kptr_restrict
 sudo sysctl net.ipv4.ip_forward
 
 Project structure
-hardened-linux/
-|-- harden.sh 	# main automation script
-|-- README.md	# documentation
-|-- .gitignore
+```hardened-linux/
+|- harden.sh 	# main automation script
+|- README.md	# documentation
+|- .gitignore
+```
 
 Known issues
 - If SSH blocks access after disabling password login, ensure SSH key authentication is configured first.
