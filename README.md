@@ -1,5 +1,4 @@
-A simple, automated Linux server hardening script for Debian-based systems.
-It applies a secure baseline suitable for lab servers, self-hosted services and security practice.
+A simple, automated Linux server hardening script for Debian-based systems. It applies a secure baseline suitable for lab servers, self-hosted services, and security practice.
 
 Features
 1. SSH hardening
@@ -39,10 +38,8 @@ sudo ./harden.sh
 Verification
 1. Check firewall
 sudo ufw status verbose
-
 2. Check Fail2Ban
 sudo fail2ban-client status sshd
-
 3. Verify kernel hardening parameters
 sudo sysctl net.ipv4.tcp_syncookies
 sudo sysctl kernel.kptr_restrict
@@ -50,9 +47,9 @@ sudo sysctl net.ipv4.ip_forward
 
 Project structure
 hardened-linux/
-|- harden.sh 	# main automation script
-|- README.md	# documentation
-|- .gitignore
+|-- harden.sh 	# main automation script
+|-- README.md	# documentation
+|-- .gitignore
 
 Known issues
 - If SSH blocks access after disabling password login, ensure SSH key authentication is configured first.
