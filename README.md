@@ -39,9 +39,15 @@ sudo ./harden.sh
 
 ## Verification
 1. Check firewall
-```sudo ufw status verbose```
+```
+sudo ufw status verbose
+```
+
 2. Check Fail2Ban
-```sudo fail2ban-client status sshd```
+```
+sudo fail2ban-client status sshd
+```
+
 3. Verify kernel hardening parameters
 ```
 sudo sysctl net.ipv4.tcp_syncookies
@@ -50,10 +56,12 @@ sudo sysctl net.ipv4.ip_forward
 ```
 
 ## Project structure
+```
 hardened-linux/
 |---harden.sh 	# main automation script
 |---README.md	# documentation
 |---.gitignore
+```
 
 ## Known issues
 - If SSH blocks access after disabling password login, ensure SSH key authentication is configured first.
